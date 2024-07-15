@@ -1,5 +1,3 @@
-# postgres-backups-tf-k8s
-
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -7,25 +5,24 @@ The following requirements are needed by this module:
 
 - <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) (~>1.9.0)
 
-- <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) (2.30.0)
+- <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) (~>2.30.0)
 
 ## Providers
 
-No providers.
+The following providers are used by this module:
+
+- <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) (~>2.30.0)
 
 ## Modules
 
-The following Modules are called:
-
-### <a name="module_postgres"></a> [postgres](#module\_postgres)
-
-Source: ./modules/postgres
-
-Version:
+No modules.
 
 ## Resources
 
-No resources.
+The following resources are used by this module:
+
+- [kubernetes_cron_job_v1.pg_dump_cron_job](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cron_job_v1) (resource)
+- [kubernetes_secret_v1.pg_pg_pass_secret](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret_v1) (resource)
 
 ## Required Inputs
 
@@ -78,6 +75,22 @@ Description: Schedule for Cronjobs to run
 Type: `string`
 
 Default: `"59 23 * * *"`
+
+### <a name="input_busybox_version"></a> [busybox\_version](#input\_busybox\_version)
+
+Description: Version of Rancher BusyBox Container
+
+Type: `string`
+
+Default: `"1.31.1"`
+
+### <a name="input_postgres_version"></a> [postgres\_version](#input\_postgres\_version)
+
+Description: Version of Postgres Container
+
+Type: `string`
+
+Default: `"16"`
 
 ## Outputs
 
